@@ -7,17 +7,22 @@ import freeCodeCampLogo from './imagenes/freecodecamp-logo.png'
 import Boton from './componentes/Boton';
 import Contador from './componentes/Contador';
 
+// Uso de hugs useState 
+import { useState} from 'react';
+
 function App() {
+
+const [numClics, setNumClics] = useState(0); 
 
 //definir una funcion
     // funcion flecha 
     const manejarClick =()=>{
-      console.log('click');
+     setNumClics( numClics + 1);
     }
 
 
     const reiniciarContador =()=>{
-      console.log('reiniciar');
+      setNumClics(0);
     }
     return (
     <div className="App">
@@ -28,7 +33,7 @@ function App() {
             alt='Logo de free code camp'/>
       </div>
       <div className='contenedor-principal'>
-      <Contador numClics='5'
+      <Contador numClics={numClics}
       />
 
         <Boton
